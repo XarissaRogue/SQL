@@ -1,0 +1,32 @@
+--Creates table 
+CREATE TABLE chefStore (product_id INTEGER PRIMARY KEY, product_name TEXT, quantity_aquired INTEGER,quantity_sold INTEGER, price INTEGER);
+INSERT INTO chefStore VALUES (1,"Chef Knife",20,14,67.29);
+INSERT INTO chefStore VALUES (2,"Butcher Knife",15,6,39.99);
+INSERT INTO chefStore VALUES (3,"Pairing Knife",10,7,21.95);
+INSERT INTO chefStore VALUES (4,"Knife Sharpener",4,2,139.95);
+INSERT INTO chefStore VALUES (5,"Apron",13,5,31.99);
+INSERT INTO chefStore VALUES (6,"Chef Coat",30,20,38.99);
+INSERT INTO chefStore VALUES (7,"Chef Pants",30,15,30.99);
+INSERT INTO chefStore VALUES (8,"Non-Slip Shoes",18,15,30.58);
+INSERT INTO chefStore VALUES (9,"Plastic Cutting Board",10,3,18.99);
+INSERT INTO chefStore VALUES (10,"Sanitizer Bucket",10,3,14.99);
+INSERT INTO chefStore VALUES (11,"Knife Roll",12,4,29.98);
+INSERT INTO chefStore VALUES (12,"Sauce Pan",10,7,29.99);
+INSERT INTO chefStore VALUES (13,"Saute Pan",11,5,49.99);
+INSERT INTO chefStore VALUES (14,"Large Pot",15,9,105.03);
+INSERT INTO chefStore VALUES (15,"Full Sheet Tray",50,45,39.97);
+
+--Shows table with all information 
+SELECT * FROM chefStore; 
+
+--Shows product with its cost in decending order
+SELECT product_name AS "Name", PRINTF("$%.2f",price) AS "Cost" From chefStore ORDER BY price desc;
+
+--Shows profit of items sold
+SELECT product_name AS "Name", PRINTF("$%.2f", price*quantity_sold) AS "Profit" FROM chefStore ORDER BY price*quantity_sold desc;
+
+--Shows total profit 
+SELECT PRINTF("$%.2f",SUM(price*quantity_sold)) AS "Total Profit" FROM chefStore; 
+
+
+
